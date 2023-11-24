@@ -44,3 +44,6 @@ string[] CheckArrayStr(string[] array)
 ~~~
 Array.Resize(ref resultArray, index)
 ~~~
+
+## Работа с Git
+![](Git.PNG)
