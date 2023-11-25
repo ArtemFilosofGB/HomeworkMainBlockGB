@@ -63,8 +63,8 @@ bool isValidInput = int.TryParse(Console.ReadLine(), out arraySize);//Обраб
 
 if (!isValidInput || arraySize <= 0)
 {
-Console.WriteLine("Некорректный ввод. Размер массива должен быть положительным числом.");
-return;
+    Console.WriteLine("Некорректный ввод. Размер массива должен быть положительным числом.");
+    return;
 }
 
 string[] array = CreateArrayStr(arraySize);
@@ -73,10 +73,7 @@ Console.WriteLine("Сформирован массив строк:");
 PrintArrayStr(array);
 Console.WriteLine("");
 
-
 string[] resultArray = CheckArrayStr(array);
-
-
 
 Console.WriteLine("Массив из строк, длина которых меньше, либо равна 3 символам :");
 PrintArrayStr(resultArray);
