@@ -12,26 +12,29 @@
 
 
 // Создание массива из пользовательского ввода
-string[] CreateArrayStr(int size) 
+string[] CreateArrayStr(int size)
 {
     string[] strings = new string[size];
     for (int i = 0; i < size; i++)
     {
         Console.Write($"Введите строку {i}: ");
-        strings[i] = Console.ReadLine().ToString();
+        strings[i] = Console.ReadLine();
     }
 
     return strings;
 }
 
 //Вывод строкового массива
-void PrintArrayStr(string[] array) 
+void PrintArrayStr(string[] array)
 {
-    Console.Write($"[ ");
-
+    Console.Write("[");
     for (int i = 0; i < array.Length; i++)
     {
-        Console.Write($" {array[i]} ");
+        Console.Write("\"" + array[i] + "\"");
+        if (i < array.Length - 1)
+        {
+            Console.Write(", ");
+        }
     }
     Console.Write("]");
 }
@@ -54,7 +57,16 @@ string[] CheckArrayStr(string[] array)
 }
 
 Console.Write("Введите размер строкового массива :");
-int arraySize = Convert.ToInt32(Console.ReadLine());
+//int arraySize = Convert.ToInt32(Console.ReadLine());
+int arraySize;
+bool isValidInput = int.TryParse(Console.ReadLine(), out arraySize);//Обработка ошибки ввода
+
+if (!isValidInput || arraySize <= 0)
+{
+Console.WriteLine("Некорректный ввод. Размер массива должен быть положительным числом.");
+return;
+}
+
 string[] array = CreateArrayStr(arraySize);
 
 Console.WriteLine("Сформирован массив строк:");
